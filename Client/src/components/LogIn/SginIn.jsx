@@ -10,11 +10,11 @@ const Signin = () => {
     const password = useSelector((state) => state.reducerB.signinPassword)
     const userInfo = useSelector((state) => state.reducerB.signupUserInfo)
     const signupStatus = useSelector((state) => state.reducerB.signupStatus)
-
+    const [res, setRes] = useState({})
+    const [signinResponse, setSigninResponse] = useState("")
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(signupInfo(userName, email, password))
-        dispatch(signup())
     }
 
     useEffect(() => {
@@ -28,13 +28,22 @@ const Signin = () => {
                 body: JSON.stringify(user)
             });
             const content = await rawResponse.json();
+            setRes(content)
+
         }
         apifunction("https://gamesk.herokuapp.com/user", userInfo)
 
     }, [userInfo])
+    useEffect(() => {
+        if (res.hasOwnProperty("email")) {
+            dispatch(signup())
+        } else if (res.hasOwnProperty("msggg")) {
+            setSigninResponse("Error")
+        }
+    }, [res])
     const dispatch = useDispatch();
     if (signupStatus) {
-        return <section style={{justifyContent: "center"}} className="signup">
+        return <section style={{ justifyContent: "center" }} className="signup">
             <h2>Signed Up Successfully</h2>
             <h3 onClick={() => dispatch(openSigninModule())} className="loginAfterSignup">Sign In</h3>
         </section>
@@ -47,6 +56,13 @@ const Signin = () => {
             <input value={password} onChange={(e) => dispatch(signupPassword(e))} required type="password" placeholder="Password" />
             <input type="submit" value="Sign Up" />
         </form>
+        {signinResponse == "Error" ? <div>
+            <p>{signinResponse}</p>
+            <ul>
+                <li>Enter a vaild Email Adress</li>
+                <li>Make sure you didnt Sign in with that Email Before</li>
+            </ul>
+        </div> : ""}
         <span className='back' onClick={() => dispatch(openSigninModule())}>
             <MdKeyboardBackspace />
             back

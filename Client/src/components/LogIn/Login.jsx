@@ -14,10 +14,6 @@ const Login = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(loginInfo(userName, password))
-        
-        setTimeout(() => {
-            dispatch(openLogingModule())
-        }, 3000)
     }
 
     useEffect(() => {
@@ -30,6 +26,7 @@ const Login = () => {
                 body: JSON.stringify(user)
             });
             const content = await rawResponse.text();
+            console.log(content)
             setInfo(content)
         }
         login("https://gamesk.herokuapp.com/user/login", userinfo)
@@ -37,7 +34,13 @@ const Login = () => {
     useEffect(() => {
         dispatch(login(info))
     }, [info])
-
+    useEffect(() => {
+        if (loginStatus) {
+            setTimeout(() => {
+                dispatch(openLogingModule())
+            }, 3000)
+        }
+    }, [loginStatus])
     if (loginStatus) {
         return <section className="login">
             <h2>Welcome {userName}</h2>
@@ -51,6 +54,8 @@ const Login = () => {
             <input value={password} onChange={(e) => dispatch(loginPassword(e))} required type="password" placeholder="Password" />
             <input type="submit" value="Login" />
         </form>
+        <p>{info == "Wrong Password" ? "Wrong Password" : ""}</p>
+
         <div className="loginBottom">
             <Link to="#">Forget Password</Link>
             <button onClick={() => dispatch(openSigninModule())}>Sign Up</button>
