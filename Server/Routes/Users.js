@@ -15,9 +15,9 @@ router.post("/user", async (req, res) => {
     try {
         const hashedPassword = await bcryptjs.hash(req.body.password, 10)
         const Posts = new Users({
-            name: req.body.name,
-            status: req.body.status,
-            password: hashedPassword
+            name: req.body.name,       
+            password: hashedPassword,
+            email: req.body.email
         })
         Posts.save()
             .then(data => {

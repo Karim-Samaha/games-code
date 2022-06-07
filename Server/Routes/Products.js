@@ -40,9 +40,9 @@ router.get("/products/:id", async (req, res) => {
 })
 
 //Delete Products
-router.delete('/products', async (req, res) => {
-    const remove = await GamesProducts.remove()
-    res.json(remove)
-})
+// router.delete('/products', async (req, res) => {
+//     const remove = await GamesProducts.remove()
+//     res.json(remove)
+// })
 
 module.exports = router;
