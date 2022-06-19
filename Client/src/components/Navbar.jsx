@@ -1,4 +1,4 @@
-
+import '../sass/nav.scss';
 import { AiOutlineBars } from 'react-icons/ai'
 import { BsFillPersonFill, BsCartFill } from 'react-icons/bs'
 import { IoMdArrowDropdown } from 'react-icons/io'

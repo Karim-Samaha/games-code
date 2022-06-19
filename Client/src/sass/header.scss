@@ -1,0 +1,26 @@
+@import "main.scss";
+.header {
+    width: 90%;
+    height: 65vh;
+    margin: 0 auto;
+    @include flexRow(flex-end);
+    align-items: flex-start;
+    @media (max-width: 750px) {
+        width: 95%;
+        height: 40vh;
+    }
+    img {
+        width: 26%;
+        height: 100%;
+        transition: $transition;
+        cursor: pointer;
+        &:hover {
+            opacity: 0.7;
+        }
+        @media (max-width: 750px) {
+            width: 33.3%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}

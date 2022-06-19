@@ -1,3 +1,4 @@
+import '../sass/cart.scss';
 import { useDispatch, useSelector } from "react-redux";
 import { BiTrash } from 'react-icons/bi';
 import { Link } from "react-router-dom";

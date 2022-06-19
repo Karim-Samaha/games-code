@@ -1,3 +1,4 @@
+import '../sass/browse.scss';
 const Browse = () => {
     const imgs = [
         { "id": 1, "img": "./assets/action.png", "name": "Action" },

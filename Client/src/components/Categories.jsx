@@ -1,3 +1,4 @@
+import '../sass/categories.scss';
 import { useSelector } from 'react-redux';
 import { IoMdArrowDropright } from 'react-icons/io'
 import { Link } from 'react-router-dom';

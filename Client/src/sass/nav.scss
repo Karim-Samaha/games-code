@@ -1,0 +1,287 @@
+@import './main.scss';
+nav {
+    width: 100%;
+    height: 150px;
+    background-color: $black;
+    @include flexRow(space-around);
+    align-items: flex-start;
+    position: relative;
+    @media (max-width: 768px) {
+        flex-wrap: wrap;
+        @include flexRow(space-around);
+    }
+    .sidbarOpen {
+        display: none;
+
+        @media (max-width: 768px) {
+            display: block;
+            transform: scale(200%);
+            z-index: 9999;
+        }
+    }
+    div {
+        width: 25%;
+        height: 60%;
+        color: $white;
+    }
+    .logo {
+        width: 25%;
+        font-size: 2em;
+        @include flexRow(center);
+        align-items: center;
+        position: relative;
+        transition: $transition;
+        font-family: "Anton", sans-serif;
+        letter-spacing: 0.1em;
+        @media (max-width: 992px) {
+            font-size: 1.6em;
+        }
+        @media (max-width: 768px) {
+            @include flexRow(space-around);
+            width: 60%;
+            height: 50%;
+            font-size: 1.3em;
+        }
+        &:hover {
+            opacity: 0.5;
+        }
+        .yellow {
+            color: #f05f00;
+        }
+        .blue {
+            color: #0084c1;
+        }
+
+        a {
+            position: absolute;
+            width: 80%;
+            height: 70%;
+            right: 0;
+            z-index: 99;
+        }
+    }
+    .searchBar {
+        width: 50%;
+        position: relative;
+        @include flexRow(center);
+        .searchOutput {
+            width: 100%;
+            height: 250%;
+            overflow-y: scroll;
+            background-color: white;
+            position: absolute;
+            z-index: 99999;
+            top: 80%;
+            border-radius: 5px;
+            .searchItem {
+                color: $black;
+                width: 80%;
+                height: 20%;
+                border-bottom: 1px solid $lightFontColor;
+                margin-bottom: 2%;
+                cursor: pointer;
+                transition: $transition;
+                @include flexRow(flex-start);
+                position: relative;
+                &:hover {
+                    opacity: 0.5;
+                }
+                img {
+                    width: 10%;
+                    height: 100%;
+                    object-fit: cover;
+                    margin: 5% 10% 5% 1%;
+                }
+                a {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 9;
+                }
+                @media (max-width: 768px) {
+                    width: 90%;
+                    h2 {
+                        font-size: 1em;
+                    }
+                }
+            }
+        }
+        @media (max-width: 768px) {
+            order: 3;
+            width: 90%;
+            height: 50%;
+        }
+        input {
+            width: 85%;
+            height: 50%;
+            border-radius: 10px;
+            border: none;
+            text-indent: 5%;
+            font-size: 1em;
+            @media (max-width: 768px) {
+                width: 100%;
+            }
+            &:focus {
+                outline: none;
+            }
+        }
+        svg {
+            transform: scale(150%);
+            position: relative;
+            padding: 1% 1%;
+            border-radius: 50% !important;
+            border-radius: 0 2px 2px 0;
+            right: -2%;
+            z-index: 0;
+            background-color: #2f82fb;
+            cursor: pointer;
+            transition: $transition;
+            @media (max-width: 768px) {
+                right: -2%;
+            }
+        }
+    }
+    .navOptions {
+        width: 15%;
+        @include flexRow(space-around);
+        @media (max-width: 768px) {
+            width: 30%;
+            height: 50%;
+        }
+        .username {
+            text-decoration: underline !important;
+            cursor: pointer;
+        }
+        a {
+            position: relative;
+            color: white;
+            span {
+                position: absolute;
+                top: -50%;
+                z-index: 99;
+                padding: 5px 8px;
+                background-color: #0084c1;
+                border-radius: 50%;
+
+                @media (max-width: 768px) {
+                    left: 55%;
+                }
+            }
+        }
+        svg {
+            transform: scale(200%);
+            padding: 6px 6px;
+            border-radius: 50%;
+            background-color: $blackTwo;
+            transition: $transition;
+            cursor: pointer;
+            @media (max-width: 992px) {
+                transform: scale(170%);
+            }
+            @media (max-width: 768px) {
+                transform: scale(140%);
+            }
+            &:hover {
+                background-color: #1d1b1b;
+            }
+        }
+    }
+    .navBottom {
+        position: absolute;
+        width: 90%;
+        height: 35%;
+        bottom: 2%;
+        @include flexRow(space-around);
+        align-items: flex-end;
+        @media (max-width: 992px) {
+            width: 95%;
+        }
+        div:not(:last-child) {
+            width: 15%;
+            height: 90%;
+            background-color: $blackTwo;
+            border-radius: 5px;
+            font-size: 0.7em;
+            transition: $transition;
+            @include flexRow(center);
+            cursor: pointer;
+            &:first-child {
+                width: 22%;
+                font-size: 1.2em;
+                svg {
+                    transform: scale(120%);
+                    margin-right: 5%;
+                }
+            }
+            a {
+                text-decoration: none;
+                color: $white;
+                font-size: 1.7em;
+                font-weight: bold;
+                height: 100%;
+                width: 100%;
+                @include flexRow(center);
+                @media (max-width: 992px) {
+                    font-size: 1.2em;
+                }
+            }
+            &:hover {
+                background-color: #3a3939;
+            }
+            &.sectionOne {
+                position: relative;
+                .arrowDown {
+                    position: absolute;
+                    bottom: -30%;
+                    z-index: 99;
+                    color: $blackTwo;
+                }
+            }
+            &.sectionFive {
+                background-color: #711bec;
+                &:hover {
+                    opacity: 0.5;
+                }
+            }
+            &.sectionSix {
+                background-color: #40b87f;
+                &:hover {
+                    opacity: 0.5;
+                }
+            }
+        }
+        &.smallScreenClosed {
+            left: -100% !important;
+        }
+        &.smallScreenOpen {
+            left: 0;
+        }
+        @media (max-width: 786px) {
+            position: absolute;
+            width: 300px;
+            height: 75vh;
+            top: 99%;
+            z-index: 9999;
+            transition: $transition;
+            overflow-y: scroll;
+            @include flexCoulm(flex-start);
+            background-color: $black;
+            div:not(:last-child) {
+                width: 90% !important;
+                height: 8% !important;
+                margin-bottom: 5%;
+                flex-shrink: 0;
+            }
+            .sectionOne {
+                order: 1;
+            }
+            .sectionTwo,
+            .sectionThree,
+            .sectionFour,
+            .sectionFive,
+            .sectionSix {
+                order: 2;
+            }
+        }
+    }
+}

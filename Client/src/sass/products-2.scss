@@ -1,0 +1,129 @@
+@import './main.scss';
+.importantProducts,
+.rowContainers {
+    width: 90%;
+    height: 130vh;
+    margin: 0 auto;
+    margin-top: 5vh;
+    @include flexRow(flex-start);
+    @media (max-width: 992px) {
+        width: 95%;
+    }
+    @media (max-width: 768px) {
+        @include flexCoulm(flex-start);
+        width: 95%;
+    }
+
+    .sectionOne,
+    .sectionTwo,
+    .sectionThree {
+        flex: 1;
+        height: 100%;
+        @include flexCoulm(flex-start);
+        align-items: flex-start;
+        @media (max-width: 768px) {
+            height: 30%;
+            width: 100%;
+            justify-content: space-between;
+            flex-wrap: nowrap;
+            border-bottom: 1px solid $lightFontColor;
+        }
+        h2 {
+            font-size: 2em;
+            margin: 0 0 1% 0;
+            @media (max-width: 992px) {
+                font-size: 2em;
+            }
+        }
+        p {
+            font-size: .8em;
+            color: $lightFontColor;
+            @media (max-width: 992px) {
+                font-size: 1em;
+                margin: 1% 0;
+            }
+        }
+        .products {
+            @include flexCoulm(space-around);
+            align-items: flex-start;
+            width: 100%;
+            height: 100%;
+            @media (max-width: 768px) {
+                @include flexRow(flex-start);
+                flex-wrap: nowrap;
+                overflow-x: scroll;
+                overflow-y: hidden;
+                flex-shrink: 0;
+                height: 80%;
+            }
+            .productItem {
+                width: 90%;
+                height: 15%;
+                border-bottom: 1px solid $lightFontColor;
+                position: relative;
+                @include flexRow(space-between);
+                @media (max-width: 750px) {
+                    flex-shrink: 0 !important;
+                    width: 33% !important;
+                    height: 80%;
+                    @include flexCoulm(flex-start);
+                    margin: 0 2vh;
+                    border-bottom: none;
+                }
+                &:hover {
+                    img {
+                        opacity: 0.6;
+                    }
+                }
+                img {
+                    height: 80%;
+                    width: 20%;
+                    object-fit: cover;
+                    transition: $transition;
+                    @media (max-width: 768px) {
+                        width: 100%;
+                        height: 50%;
+                        object-fit: none;
+                    }
+                }
+                .info {
+                    @include flexCoulm(space-around);
+                    align-items: flex-start;
+                    height: 100%;
+                    width: 70%;
+                    margin-left: 10%;
+                    h2 {
+                        font-size: 1em;
+                        @media (max-width: 992px) {
+                            font-size: 0.9em;
+                        }
+                        @media (max-width: 768px) {
+                            font-size: 0.8em;
+                            margin: 0 0 0 1%;
+                            text-align: center;
+                        }
+                    }
+                    h3 {
+                        margin: 0;
+                        font-size: 1.1em;
+                        width: 100%;
+                        text-align: center;
+
+                        &.oldPrice {
+                            text-decoration: line-through !important;
+                            color: $lightFontColor;
+                        }
+                    }
+                }
+                a {
+                    position: absolute;
+                    width: 80%;
+                    left: 0;
+                    height: 100%;
+                    z-index: 99;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

@@ -1,3 +1,4 @@
+import '../sass/single-product-page.scss';
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useParams } from "react-router-dom";
@@ -33,9 +34,9 @@ const SingleProductPage = () => {
         <div>
             <h4>Price</h4>
             <p>${data[0].price}</p>
-            <p className="oldPrice">${data[0].oldPrice}</p>
+            <p className="oldPrice">${+data[0].oldPrice + 10}</p>
             <span>
-                {(100 - (data[0].price / data[0].oldPrice) * (100)).toString().substring(0, 2)}%OFF
+               20% OFF
             </span>
             <button onClick={() => dispatch(setCart())}>Add To Cart</button>
         </div>

@@ -1,4 +1,4 @@
-
+import '../sass/header.scss';
 const Header = () => {
     const headerImg = [{
         "id": 1,

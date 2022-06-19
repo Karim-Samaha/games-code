@@ -1,3 +1,4 @@
+import '../../sass/login.scss';
 import { useDispatch, useSelector } from "react-redux";
 import { AiOutlineClose } from 'react-icons/ai'
 import { openLogingModule } from "../../redux/action";

@@ -1,0 +1,49 @@
+$black: #000000;
+$blackTwo: #212121;
+$white: white;
+$lightFontColor: #847f88;
+$transition: all 0.5s ease-in-out;
+@mixin button {
+    padding: 10px 10px;
+    border: none;
+    background-color: #0084c1;
+    color: $white;
+    border-radius: 3px;
+    font-weight: bold;
+    transition: $transition;
+    cursor: pointer;
+    &:hover {
+        opacity: 0.5;
+    }
+}
+@mixin ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    li {
+        margin: 0;
+        padding: 0;
+    }
+}
+@mixin flexRow($js) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: $js;
+}
+@mixin flexCoulm($js) {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: $js;
+}
+html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+body {
+    padding: 0;
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+    background-color: #f9f9f9;
+}

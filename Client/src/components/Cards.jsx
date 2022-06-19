@@ -1,3 +1,4 @@
+import '../sass/products-2.scss';
 import { useSelector } from 'react-redux'
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useRef } from "react";
@@ -18,7 +19,7 @@ const Cards = () => {
                 <div className="info">
                     <h2>{name}</h2>
                     <h3>{price}$</h3>
-                    <h3>{oldPrice}$</h3>
+                    <h3 className="oldPrice">{+oldPrice + 10}$</h3>
                     <Link
                         to={`/product/${id}`}>
                     </Link>

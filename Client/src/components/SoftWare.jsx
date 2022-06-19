@@ -1,3 +1,4 @@
+import '../sass/products-1.scss';
 import { showMoreTrending, singleProduct } from '../redux/action'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link, useLocation } from 'react-router-dom'
@@ -34,7 +35,7 @@ const Software = () => {
                     <img src={img} alt={name} />
                     <h4>{name}</h4>
                     <h5>{price}$</h5>
-                    <h6>{oldPrice}$</h6>
+                    <h6>{+oldPrice + 10}$</h6>
                     <Link
                         to={`/product/${id}`}>
                     </Link>
@@ -47,7 +48,7 @@ const Software = () => {
                         <img src={img} alt={name} />
                         <h4>{name}</h4>
                         <h5>{price}$</h5>
-                        <h6>{oldPrice}$</h6>
+                        <h6>{+oldPrice + 10}$</h6>
                         <Link
                             to={`/product/${id}`}>
                         </Link>

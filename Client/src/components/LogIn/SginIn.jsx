@@ -1,3 +1,4 @@
+import '../../sass/login.scss';
 import { useEffect, useState } from 'react'
 import { MdKeyboardBackspace } from 'react-icons/md'
 import { useDispatch, useSelector } from 'react-redux'
